@@ -1,5 +1,7 @@
 # room_booking_system
-TODO: add good description
+System for reservatios of rooms inside of offices/schools/universitites/etc.
+Allows for intuitive pick of the room and reservation with precise time and duration management.
+Supports admin and user role, making management easy.
 
 Responsibility:
     - janek-j (Jan Jochymczyk)
