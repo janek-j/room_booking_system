@@ -3,9 +3,7 @@ name: Deploy FastAPI Backend
 
 on:
   push:
-    branches:
-      - main
-      - 'feature/basicCICD'
+    branches: [main]
     paths:
       - "backend/**"
       - ".github/workflows/deploy-backend.yml"
