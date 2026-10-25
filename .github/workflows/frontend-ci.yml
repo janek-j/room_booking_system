@@ -6,12 +6,12 @@ on:
     branches: [main]
     paths:
       - "website/**"
-      - ".github/workflows/build_front.yml"
+      - "frontend-ci.yml"
   pull_request:
     branches: [main]
     paths:
       - "website/**"
-      - ".github/workflows/build_front.yml"
+      - "frontend-ci.yml"
 
 permissions:
   contents: read
