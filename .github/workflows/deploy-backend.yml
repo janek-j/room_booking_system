@@ -57,12 +57,14 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy to production
+        run: vercel deploy --prod --yes --token="$VERCEL_TOKEN"
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Get Vercel production alias
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.TEAM_ID }}
         run: |
-          vercel deploy --prod --yes --token="$VERCEL_TOKEN" 2>&1 | tee deploy.log
-          DEPLOYMENT_URL=$(grep -Eo 'https://[^[:space:]]+vercel\.app' deploy.log | head -n 1)
-          echo "Deployment URL: $DEPLOYMENT_URL"
-          test -n "$DEPLOYMENT_URL"
-          vercel inspect "$DEPLOYMENT_URL" --logs --token="$VERCEL_TOKEN"
+          vercel alias ls --token="$VERCEL_TOKEN" --scope="$VERCEL_ORG_ID"
 
