@@ -56,6 +56,16 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
+      - name: Inspect Vercel configuration
+        run: |
+          echo "Project configuration:"
+          cat .vercel/project.json
+          echo "Vercel CLI version:"
+          vercel --version
+          echo "Backend directory:"
+          pwd
+          ls -la
+
       - name: Deploy to production
         run: vercel deploy --prod --yes --token="$VERCEL_TOKEN"
         env:
