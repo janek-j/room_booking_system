@@ -56,16 +56,6 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
-      - name: Inspect Vercel configuration
-        run: |
-          echo "Project configuration:"
-          cat .vercel/project.json
-          echo "Vercel CLI version:"
-          vercel --version
-          echo "Backend directory:"
-          pwd
-          ls -la
-
       - name: Deploy to production
         run: vercel deploy --prod --yes --token="$VERCEL_TOKEN"
         env:
@@ -75,7 +65,7 @@ jobs:
         if: always()
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          DEPLOYMENT_URL: https://YOUR-EXACT-DEPLOYMENT-URL
+          DEPLOYMENT_URL: https://roombookingsystem-seven.vercel.app/
         run: |
           vercel inspect "$DEPLOYMENT_URL" --token="$VERCEL_TOKEN"
           vercel inspect "$DEPLOYMENT_URL" --logs --token="$VERCEL_TOKEN"
