@@ -61,10 +61,4 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
-      - name: Get Vercel production alias
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.TEAM_ID }}
-        run: |
-          vercel alias ls --token="$VERCEL_TOKEN" --scope="$VERCEL_ORG_ID"
 
