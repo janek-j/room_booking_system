@@ -19,3 +19,6 @@ Tech stack:
     - postgres
     
 
+REPO IS DEPRICIATED PLEASE USE TO ADJUST NEW ORIGIN
+
+git remote set-url origin https://github.com/Giga-sigmy/room_booking_system.git
